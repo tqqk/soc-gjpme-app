@@ -2,7 +2,8 @@
   "name": "kviz",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run seed && npm run server",
+    "server": "node server.js",
     "seed": "node seed.js"
   },
   "dependencies": {
