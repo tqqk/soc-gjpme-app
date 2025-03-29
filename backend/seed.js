@@ -38,15 +38,9 @@ async function seedDatabase() {
                 question TEXT NOT NULL,
                 options JSONB NOT NULL,
                 correctAnswer TEXT NOT NULL
-            )`,
-            (err) => {
-                if (err) {
-                    console.error("Problém s vytvořením table", err.message);
-                } else {
-                    console.log("Table vytvořena");
-                }
-            }
-    );
+            )`
+        );
+        console.log("Table vytvořena");
 
         // vložit otázky do table
         for (const question of questions) {
@@ -55,12 +49,11 @@ async function seedDatabase() {
                 [question.orderNumber, question.question, question.options, question.correctAnswer]
             );
         }
-
         console.log("Otázky vloženy do databáze");
 
     } catch (error) {
 
-        console.error("Problém s vložením otázek do databáze", error);
+        console.error("Problém s vytvořením table a vložením otázek do databáze", error);
 
     } finally {
 
