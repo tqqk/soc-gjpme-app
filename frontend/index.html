@@ -13,65 +13,67 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     </head>
 
-    <body class="bg-black-white text-black text-base font-robotoMono font-medium h-screen flex flex-col accent-black">
+    <body class="bg-black-white text-black text-base font-robotoMono font-medium accent-black">
 
-        <nav class="flex justify-between items-center px-6 py-3 bg-white rounded-xl my-6 max-w-xl mx-auto shadow-md">
-            <div class="flex items-center font-bold text-lg mr-4">
-                <a href="http://127.0.0.1:5500/frontend/index.html" class="mt-[0.05rem]">INFO O HESLECH</a>
+        <div class="flex flex-col max-w-lg h-screen mx-auto">
+
+            <nav class="flex justify-between items-center px-6 py-3 bg-white rounded-xl my-6 shadow-md w-full">
+                <div class="flex items-center font-bold text-lg mr-4">
+                    <a class="mt-[0.05rem]">INFO O HESLECH</a>
+                </div>
+                
+                <ul class="flex items-center gap-4 ml-6 font-normal">
+                    <li><a href="http://127.0.0.1:5500/frontend/index.html" class="text-black hover:text-black">generátor</a></li>
+                    <li><a href="http://127.0.0.1:5500/frontend/kviz.html" class="text-gray-500 hover:text-black">kvíz</a></li>
+                    <li><a href="http://127.0.0.1:5500/frontend/tipy.html" class="text-gray-500 hover:text-black">tipy</a></li>
+                </ul>
+                
+            </nav>
+
+            <div class="flex flex-col items-center justify-center mt-[14svh] w-full">
+                <h1 class="text-4xl font-bold text-center mb-4">Generátor passphrase</h2>
+
+                <label class="mb-2">Výběr jazyka:</label>
+                <fieldset class="border-2 border-black p-2 rounded mb-4 w-full">
+                    <div>
+                        <input type="checkbox" id="czech" name="czech" checked />
+                        <label for="czech">Čeština</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="english" name="english" />
+                        <label for="english">Angličtina</label>
+                    </div>
+                </fieldset>
+
+                <label class="mb-2">Počet slov:</label>
+                <input id="numberOfWords" type="number" value="4" min="4" max="10" class="border-2 border-black p-2 rounded w-full mb-4">
+
+                <label class="mb-2">Oddělovač slov:</label>
+                <select id="separator" class="border-2 border-black p-2 rounded mb-4 w-full">
+                    <option value="-">Pomlčka (-)</option>
+                    <option value="_">Podtržítko (_)</option>
+                    <option value="">Bez oddělovače</option>
+                </select>
+
+                <label class="mb-2">Další možnosti:</label>
+                <fieldset class="border-2 border-black p-2 rounded mb-4 w-full flex flex-row gap-2 items">
+                    <div>
+                        <input type="checkbox" id="capitalize" name="capitalize" />
+                        <label for="capitalize">Velká písmena</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="add-number" name="add-number" />
+                        <label for="add-number">Přidat číslo</label>
+                    </div>
+                </fieldset>
+
+                <button id="generate" class="bg-black text-white hover:bg-opacity-5 hover:text-black border-2 border-black  px-4 py-2 rounded w-full">
+                    Vygenerovat passphrase
+                </button>
+
+                <div id="generatedPassphrase" class="mt-8 p-2 text-center text-xl rounded min-h-11"></div>
             </div>
-            
-            <ul class="flex items-center gap-4 ml-6 font-normal">
-                <li><a href="http://127.0.0.1:5500/frontend/kviz.html" class="text-gray-500 hover:text-black">kvíz</a></li>
-                <li><a href="http://127.0.0.1:5500/frontend/index.html" class="text-black hover:text-black">generátor</a></li>
-                <li><a href="http://127.0.0.1:5500/frontend/tipy.html" class="text-gray-500 hover:text-black">tipy</a></li>
-            </ul>
-            
-        </nav>
-
-        <div class="flex flex-col items-center justify-center flex-grow max-w-md mx-auto mb-40">
-            <h2 class="text-4xl font-bold text-center mb-4 pb-[0.4rem] border-b-2 border-black">Generátor passphrase</h2>
-
-            <label class="mb-2">Výběr jazyka:</label>
-            <fieldset class="border-2 border-black p-2 rounded mb-4 w-full">
-                <div>
-                    <input type="checkbox" id="czech" name="czech" checked />
-                    <label for="czech">Čeština</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="english" name="english" />
-                    <label for="english">Angličtina</label>
-                </div>
-            </fieldset>
-
-            <label class="mb-2">Počet slov:</label>
-            <input id="numberOfWords" type="number" value="4" min="4" max="10" class="border-2 border-black p-2 rounded w-full mb-4">
-
-            <label class="mb-2">Oddělovač slov:</label>
-            <select id="separator" class="border-2 border-black p-2 rounded mb-4 w-full">
-                <option value="-">Pomlčka (-)</option>
-                <option value="_">Podtržítko (_)</option>
-                <option value="">Bez oddělovače</option>
-            </select>
-
-            <label class="mb-2">Další možnosti:</label>
-            <fieldset class="border-2 border-black p-2 rounded mb-4 w-full flex flex-row gap-2 items">
-                <div>
-                    <input type="checkbox" id="capitalize" name="capitalize" />
-                    <label for="capitalize">Velká písmena</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="add-number" name="add-number" />
-                    <label for="add-number">Přidat číslo</label>
-                </div>
-            </fieldset>
-
-            <button id="generate" class="bg-black text-white px-4 py-2 rounded w-full">
-                Vygenerovat passphrase
-            </button>
-
-            <div id="generatedPassphrase" class="mt-8 p-2 text-center text-xl rounded min-h-11"></div>
         </div>
-
     </body>
 
 </html>
