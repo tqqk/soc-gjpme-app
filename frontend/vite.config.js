@@ -24,7 +24,7 @@ export default defineConfig({
             input: {
                 index: resolve(__dirname, 'index.html'), // Main HTML file
                 kviz: resolve(__dirname, 'kviz.html'), // Kviz HTML file
-                tipy: resolve(__dirname, 'tipy.html')  // Tipy HTML file
+                tipy: resolve(__dirname, 'generator.html')  // Tipy HTML file
             }
         }
     },

@@ -45,6 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// funkce pro validaci vstupu pro délku passphrase
+function validateNumberOfWords(input) {
+    const min = parseInt(input.min);
+    const max = parseInt(input.max);
+    let value = parseInt(input.value);
+
+    if (value < min) {
+        value = min; 
+    } else if (value > max) {
+        value = max; 
+    }
+
+    input.value = value; 
+    return value;
+}
+
 // generovaní passphrase
 function generatePassphrase() {
 
@@ -56,7 +72,7 @@ function generatePassphrase() {
     if (useEnglish == true) combinedWordList = combinedWordList.concat(wordLists.english);
     console.log(combinedWordList);
     
-    const numberOfWords = parseInt(document.getElementById("numberOfWords").value);
+    const numberOfWords = validateNumberOfWords(document.getElementById("numberOfWords"));
     const separator = document.getElementById("separator").value;
     
     const randomWords = [];

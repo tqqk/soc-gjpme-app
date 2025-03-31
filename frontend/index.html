@@ -2,11 +2,11 @@
 <html lang="cs">
 
     <head>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Generátor passphrase</title>
+        <title>Tipy pro bezpečí na internetu</title>
         <link href="./style.css" rel="stylesheet">
-        <script defer src="/js/passphrase-gen.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,62 +17,44 @@
 
         <div class="flex flex-col max-w-lg h-screen mx-auto">
 
-            <nav class="flex justify-between items-center px-6 py-3 bg-white rounded-xl my-6 shadow-md w-full">
+            <nav class="flex justify-between items-center px-6 py-3 bg-white rounded-xl my-6 w-full shadow-md">
                 <div class="flex items-center font-bold text-lg mr-4">
-                    <a class="mt-[0.05rem]">INFO O HESLECH</a>
+                    <a href="/" class="mt-[0.05rem]">INFO O HESLECH</a>
                 </div>
                 
                 <ul class="flex items-center gap-4 ml-6 font-normal">
-                    <li><a href="/" class="text-black hover:text-black">generátor</a></li>
-                    <li><a href="/kviz.html" class="text-gray-500 hover:text-black">kvíz</a></li>
-                    <li><a href="/tipy.html" class="text-gray-500 hover:text-black">tipy</a></li>
+                    <li><a href="/" class="text-black hover:text-black">info</a></li>
+                    <li><a href="/generator.html" class="text-gray-500 hover:text-black">generátor</a></li>
+                    <li><a href="/kviz.html" class="text-gray-500 hover:text-black">kvíz</a></li>   
                 </ul>
                 
             </nav>
 
-            <div class="flex flex-col items-center justify-center mt-[10svh] w-full">
-                <h1 class="text-4xl font-bold text-center mb-4">Generátor passphrase</h1>
+            <div class="flex flex-col items-center justify-center w-full mt-[10svh]">
 
-                <label class="mb-2">Výběr jazyka:</label>
-                <fieldset class="border-2 border-black p-2 rounded mb-4 w-full">
-                    <div>
-                        <input type="checkbox" id="czech" name="czech" checked />
-                        <label for="czech">Čeština</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="english" name="english" />
-                        <label for="english">Angličtina</label>
-                    </div>
-                </fieldset>
+                <!-- <h1 class="text-4xl font-bold text-center mb-4 pb-[0.4rem] ">Tipy pro bezpečí na internetu</h1> -->
 
-                <label class="mb-2">Počet slov:</label>
-                <input id="numberOfWords" type="number" value="4" min="4" max="10" class="border-2 border-black p-2 rounded w-full mb-4">
+                <div class="max-w-3xl mx-auto p-6 text-black">
+                    <ul class="list-disc">
+                        <li>Heslo by mělo mít minimálně 8 znaků a ideálně 15 znaků</li>
+                        <li>V případě použití passphrase tak by délka měla být minimálně 15 znaků a měla by obsahovat alespoň 4 slova</li>
+                        <li>Hesla by měla být unikátní pro každý účet a neměly by být používány ani variace stejného hesla.</li>
+                        <li>Hesla by neměla obsahovat žadné osobní údaje jako jména, data narození, jména mazlíčků nebo jiné snadno odhadnutelné informace</li>
+                        <li>Společně se silným heslem používejte dvoufázové ověření</li>
+                        <li>Další tipy:
+                            <ul class="list-disc pl-8">
+                                <li>Používat antivirový software</li>
+                                <li>Udržovat si aktualizový operační systém a aplikace</li>
+                                <li>Zabezpečit svá zařízení bezpečným heslem nebo biometrickými údaji</li>
+                                <li>Být obezřetný při klikání na odkazy, stahování souorů, sdílení osobních informací a citlivých údajů</li>
+                                <li>Pravidelně zálohovat své soubory</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+           </div>
 
-                <label class="mb-2">Oddělovač slov:</label>
-                <select id="separator" class="border-2 border-black p-2 rounded mb-4 w-full">
-                    <option value="-">Pomlčka (-)</option>
-                    <option value="_">Podtržítko (_)</option>
-                    <option value="">Bez oddělovače</option>
-                </select>
-
-                <label class="mb-2">Další možnosti:</label>
-                <fieldset class="border-2 border-black p-2 rounded mb-4 w-full flex flex-row gap-2 items">
-                    <div>
-                        <input type="checkbox" id="capitalize" name="capitalize" />
-                        <label for="capitalize">Velká písmena</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="add-number" name="add-number" />
-                        <label for="add-number">Přidat číslo</label>
-                    </div>
-                </fieldset>
-
-                <button id="generate" class="bg-black text-white hover:bg-opacity-5 hover:text-black border-2 border-black  px-4 py-2 rounded w-full">
-                    Vygenerovat passphrase
-                </button>
-
-                <div id="generatedPassphrase" class="mt-8 p-2 text-center text-xl rounded min-h-11"></div>
-            </div>
         </div>
     </body>
 

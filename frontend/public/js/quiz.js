@@ -176,11 +176,28 @@ function showFinalScore() {
 
   const scoreText = document.createElement("p");
   scoreText.classList.add(
-    "text-2xl", 
+    "text-xl", 
     "font-semibold", 
-    "mb-4"
+    "mb-4",
+    "p-4"
   );
-  scoreText.textContent = `Skóre: ${score} z ${questions.length}`;
+
+  if (score === questions.length) {
+    scoreText.textContent = `Gratulujeme! Dosáhli jste plného počtu bodů: ${score} z ${questions.length} bodů`;
+    scoreText.classList.add(
+      "text-green-900"
+    );
+  } else if (score >= questions.length / 1.5 ) {
+    scoreText.textContent = `Dobré, ale může to být lepší! Dosáhli jste ${score} z ${questions.length} bodů`;
+    scoreText.classList.add(
+      "text-green-900"
+    );
+  } else if (score < questions.length / 1.5) {
+    scoreText.textContent = `Zkuste to znovu! Dosáhli jste pouze ${score} z ${questions.length} bodů`;
+    scoreText.classList.add(
+      "text-red-900"
+    );
+  }
 
   const restartButton = document.createElement("button");
   restartButton.textContent = "Restartovat kvíz";
