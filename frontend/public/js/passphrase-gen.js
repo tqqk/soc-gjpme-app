@@ -42,8 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById("generate").addEventListener("click", generatePassphrase);
-
+    document.getElementById("copyPassphrase").addEventListener("click", copyToClipboard);
 });
+
+// funkce pro kopírování do schránky
+function copyToClipboard() {
+    const passphrase = document.getElementById("generatedPassphrase").textContent;
+
+    navigator.clipboard.writeText(passphrase).then(() => {
+
+        const copyButton = document.getElementById("copyPassphrase");
+        copyButton.textContent = "Zkopírováno!";
+        setTimeout(() => {
+            copyButton.textContent = "Zkopírovat do schránky";
+        }, 1500);
+
+    });
+}
 
 // funkce pro validaci vstupu pro délku passphrase
 function validateNumberOfWords(input) {
@@ -115,5 +130,15 @@ function generatePassphrase() {
     const passphraseElement = document.getElementById("generatedPassphrase");
     passphraseElement.textContent = passphrase;
     passphraseElement.classList.add("bg-gray-200");
+
+    document.getElementById("passphraseOutput").classList.add(
+        "bg-gray-200",
+        "border-0",
+        "border-black",
+    );
+
+    // tlačítko pro kopírování passphrase
+    const copyButton = document.getElementById("copyPassphrase");
+    copyButton.classList.remove("hidden");
 
 }

@@ -15,7 +15,7 @@
 
     <body class="bg-black-white text-black text-base font-robotoMono font-medium accent-black">
 
-        <div class="flex flex-col max-w-lg h-screen mx-auto">
+        <div class="flex flex-col max-w-lg min-h-screen mx-4 mb-4 sm:mb-0 sm:mx-auto">
 
             <nav class="flex justify-between items-center px-6 py-3 bg-white rounded-xl my-6 w-full shadow-md">
                 <div class="flex items-center font-bold text-lg mr-4">
@@ -71,7 +71,13 @@
                     Vygenerovat passphrase
                 </button>
 
-                <div id="generatedPassphrase" class="mt-8 p-2 text-center text-xl rounded min-h-11"></div>
+                <div id="passphraseOutput" class="mt-8 p-2 text-center text-xl rounded min-h-16  relative w-full">
+                    <button id="copyPassphrase" class="bg-gray-300 text-black hover:bg-gray-200 border-gray-300 border-2 px-2 py-1 rounded absolute top-3 right-3 hidden leading-[0.7rem] text-[0.7rem]">
+                    Zkopírovat do schránky
+                    </button>
+                    <div id="generatedPassphrase" class="px-4 py-10"></div>
+                </div>
+                
             </div>
         </div>
     </body>
