@@ -1,5 +1,5 @@
 {
-  "name": "kviz",
+  "name": "soc-gjpme-app-backend",
   "main": "server.js",
   "scripts": {
     "start": "npm run seed && npm run server",
