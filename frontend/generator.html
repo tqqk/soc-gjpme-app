@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Generátor passphrase</title>
         <link href="./style.css" rel="stylesheet">
-        <script defer src="/js/passphrase-gen.js"></script>
+        <script defer type="module" src="./js/passphrase-gen.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,7 @@
                 <h1 class="text-[2.10rem] leading-10 font-bold text-center mb-4 pb-[0.4rem] mx-4">Generátor passphrase</h1>
 
                 <label class="mb-2">Výběr jazyka:</label>
-                <fieldset class="border-2 border-black p-2 rounded mb-4 w-ful">
+                <fieldset class="border-2 border-black p-2 rounded mb-4 w-full">
                     <div>
                         <input type="checkbox" id="czech" name="czech" checked />
                         <label for="czech">Čeština</label>
@@ -75,7 +75,7 @@
                 </button>
 
                 <div id="passphraseOutput" class="mt-8 p-2 text-center text-xl rounded min-h-16 max-w-lg relative w-full">
-                    <button id="copyPassphrase" class="bg-gray-300 text-black hover:bg-gray-200 border-gray-300 border-2 px-2 py-1 rounded absolute top-3 right-3 hidden leading-[0.7rem] text-[0.7rem]">
+                    <button id="copyPassphrase" class="bg-gray-300 text-black hover:bg-gray-200 border-gray-300 border-2 px-2 py-1 rounded absolute top-3 right-3 hidden leading-[0.7rem] text-[0.65rem]">
                     Zkopírovat do schránky
                     </button>
                     <div id="generatedPassphrase" class="px-4 py-10 max-w-lg"></div>

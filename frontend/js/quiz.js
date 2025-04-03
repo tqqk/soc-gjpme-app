@@ -5,10 +5,12 @@ let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 // získání otázek z api
 async function fetchQuestions() {
   try {
-    const response = await fetch("https://soc-gjpme-app-backend-1.onrender.com/api/questions");
+    const response = await fetch(`${backendURL}/api/questions`);
     const data = await response.json();
 
     questions = data.sort((a, b) => a.orderNumber - b.orderNumber);
@@ -105,7 +107,7 @@ async function handleAnswer(questionId, answer, clickedButton) {
       );
     }
 
-    const response = await fetch("https://soc-gjpme-app-backend-1.onrender.com/api/submit", {
+    const response = await fetch(`${backendURL}/api/submit`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ questionId, answer }),

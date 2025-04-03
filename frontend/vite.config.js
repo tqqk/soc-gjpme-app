@@ -9,11 +9,11 @@ export default defineConfig({
                 {
                     src: 'public/wordlists/*',
                     dest: 'wordlists'
-                },
-                {
-                    src: 'public/js/*',
-                    dest: 'js'
                 }
+                // {
+                //     src: 'public/js/*',
+                //     dest: 'js'
+                // }
             ]
         })
     ],
