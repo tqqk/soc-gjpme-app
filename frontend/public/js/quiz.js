@@ -83,12 +83,15 @@ function displayCurrentQuestion() {
   questionContainer.appendChild(questionDiv);
 }
 
-// 
+// funkce na zpracování odpovědi
 async function handleAnswer(questionId, answer, clickedButton) {
   try {
 
-    // vypnutí tlačítek pro zvolení odpovědi
-    Array.from(document.querySelectorAll("button")).forEach(btn => btn.disabled = true);
+    // vypnutí tlačítek po zvolení odpovědi a zmena stylu
+    Array.from(document.querySelectorAll("#question-container button")).forEach(btn => {
+      btn.disabled = true;
+      btn.classList.remove("hover:bg-black", "hover:text-white");
+    });
 
     // přidání stylu pro zvolenou odpověď
     if (clickedButton) {
@@ -97,7 +100,7 @@ async function handleAnswer(questionId, answer, clickedButton) {
         "hover:text-white"
       );
       clickedButton.classList.add(
-        "bg-black", 
+        "bg-black",
         "text-white"
       );
     }
@@ -118,16 +121,24 @@ async function handleAnswer(questionId, answer, clickedButton) {
         "text-center", 
         "text-xl"
       );
+      clickedButton.classList.add(
+        "bg-green-900",
+        "text-white"
+      );
       resultContainer.appendChild(correctAnswerMessage);
     } else {
-      const correctAnswerMessage = document.createElement("p");
-      correctAnswerMessage.textContent = "Špatná odpověď";
-      correctAnswerMessage.classList.add(
+      const incorrectAnswerMessage = document.createElement("p");
+      incorrectAnswerMessage.textContent = "Špatná odpověď";
+      incorrectAnswerMessage.classList.add(
         "text-red-900", 
         "text-center", 
         "text-xl"
       );
-      resultContainer.appendChild(correctAnswerMessage);
+      clickedButton.classList.add(
+        "bg-red-900",
+        "text-white"
+      );
+      resultContainer.appendChild(incorrectAnswerMessage);
     }
   } catch (error) {
     resultContainer.textContent = "Chyba při odesílání odpovědi";
