@@ -50,13 +50,7 @@ const questions = [
         question: "Proč byste neměli používat osobní údaje (jména, data narození apod.) jako součást svých hesel?",
         options: JSON.stringify(["Jsou povinné pouze u některých typů účtů", "Jsou snadno odhadnutelné útočníkem", "Snižují délku vašeho hesla", "Používání osobních údajů je trestně stíhané"]),
         correctAnswer: "Jsou snadno odhadnutelné útočníkem",
-    },
-    {
-        orderNumber: 8, 
-        question: "Proč byste neměli používat osobní údaje (jména, data narození apod.) jako součást svých hesel?",
-        options: JSON.stringify(["Jsou povinné pouze u některých typů účtů", "Jsou snadno odhadnutelné útočníkem", "Snižují délku vašeho hesla", "Používání osobních údajů je trestně stíhané"]),
-        correctAnswer: "Jsou snadno odhadnutelné útočníkem",
-    },
+    }
 ];
 
 // vytvoření table a vložení otázek
