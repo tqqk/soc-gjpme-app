@@ -11,21 +11,51 @@ const pool = new Pool({
 const questions = [
     {
         orderNumber: 1,
-        question: "Otázka 1",
-        options: JSON.stringify(["Odpověd 1", "Odpověd 2", "Odpověd 3", "Odpověd 4"]),
-        correctAnswer: "Odpověd 1",
+        question: "Jaká je minimální doporučená délka silného hesla?",
+        options: JSON.stringify(["6 znaků", "8 znaků", "12 znaků", "15 znaků"]),
+        correctAnswer: "8 znaků",
     },
     {
         orderNumber: 2, 
-        question: "Otázka 2",
-        options: JSON.stringify(["Odpověd 1", "Odpověd 2", "Odpověd 3", "Odpověd 4"]),
-        correctAnswer: "Odpověd 2",
+        question: "Co je passphrase?",
+        options: JSON.stringify(["Heslo obsahující osobní údaje", "Heslo tvořeno jedním slovem", "Heslo obsahující speciální znaky a čísla", "Heslo tvořené kombinací několika slov"]),
+        correctAnswer: "Heslo tvořené kombinací několika slov",
     },
     {
         orderNumber: 3, 
-        question: "Toto je velmi dlouhá otázka, která má za cíl otestovat, jak dobře systém zvládá zpracování delších textů. Otázka může obsahovat různé detaily, jako například popis situace, kontext nebo další informace, které jsou důležité pro pochopení otázky. Jaký je správný postup v této situaci?",
-        options: JSON.stringify(["Možnost 1: Udělat první krok", "Možnost 2: Udělat druhý krok", "Možnost 3: Udělat třetí krok", "Možnost 4: Udělat čtvrtý krok"]),
-        correctAnswer: "Možnost 2: Udělat druhý krok",
+        question: "Proč byste měli používat unikátní hesla pro každý účet?",
+        options: JSON.stringify(["Zamezí to přístupu útočníka ke všem vašim účtům při úniku jednoho hesla", "Je to vyžadováno zákonem", "Usnadní to zapamatování hesel", "Zvyšuje to rychlost přihlašování"]),
+        correctAnswer: "Zamezí to přístupu útočníka ke všem vašim účtům při úniku jednoho hesla",
+    },
+    {
+        orderNumber: 4, 
+        question: "Co je dvoufázové ověření?",
+        options: JSON.stringify(["Způsob přihlášení bez použití hesla", "Kombinace hesla a dalšího ověřovacího faktoru (např. SMS kód nebo biometrie)", "Použití jednoho hesla pro jeden účet", "Technologie, která automaticky zamkne účet po třech neúspěšných pokusech o přihlášení."]),
+        correctAnswer: "Kombinace hesla a dalšího ověřovacího faktoru (např. SMS kód nebo biometrie)",
+    },
+    {
+        orderNumber: 5, 
+        question: "Jakou hlavní výhodu přináší správce hesel?",
+        options: JSON.stringify(["Ukládání všech vašich hesel na jednom místě v šifrované podobě", "Automatické sdílení hesel s vašimi kontakty", "Generování slabých hesel pro rychlé použití", "TUkládání hesel přímo do prohlížeče bez šifrování"]),
+        correctAnswer: "Ukládání všech vašich hesel na jednom místě v šifrované podobě",
+    },
+    {
+        orderNumber: 6, 
+        question: "Na co bychom měli dbát při používání správce hesel?",
+        options: JSON.stringify(["Používání krátkého hesla bez dvojfázového ověření", "Přihlašovat se na něj z cizích počítačů", "Používání velice silného hlavního hesla s dvojfázovým ověřením", "Zapsat si heslo na papírek vedle počítače v kanceláři"]),
+        correctAnswer: "Používání velice silného hlavního hesla s dvojfázovým ověřením",
+    },
+    {
+        orderNumber: 7, 
+        question: "Proč byste neměli používat osobní údaje (jména, data narození apod.) jako součást svých hesel?",
+        options: JSON.stringify(["Jsou povinné pouze u některých typů účtů", "Jsou snadno odhadnutelné útočníkem", "Snižují délku vašeho hesla", "Používání osobních údajů je trestně stíhané"]),
+        correctAnswer: "Jsou snadno odhadnutelné útočníkem",
+    },
+    {
+        orderNumber: 8, 
+        question: "Proč byste neměli používat osobní údaje (jména, data narození apod.) jako součást svých hesel?",
+        options: JSON.stringify(["Jsou povinné pouze u některých typů účtů", "Jsou snadno odhadnutelné útočníkem", "Snižují délku vašeho hesla", "Používání osobních údajů je trestně stíhané"]),
+        correctAnswer: "Jsou snadno odhadnutelné útočníkem",
     },
 ];
 

@@ -1,6 +1,6 @@
 # SOC-GJPME Web App
 
-Tento projekt je webová aplikace zaměřená na bezpečnost hesel. Obsahuje informace o heslech, generátor passphrase a kvíz pro testování znalostí o bezpečnosti hesel.
+Tento projekt je webová aplikace zaměřená na bezpečnost hesel. Obsahuje informace o heslech, generátor passphrase a kvíz pro otestování znalostí o bezpečnosti hesel.
 
 Webová aplikace je dostupná na: https://soc-gjpme-app-4acp.onrender.com
 
