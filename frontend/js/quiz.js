@@ -81,7 +81,18 @@ function displayCurrentQuestion() {
     optionsContainer.appendChild(button);
   });
 
+  // číslo otázky
+  const questionNumber = document.createElement("p");
+  questionNumber.classList.add(
+    "text-sm",
+    "text-black",
+    "mt-6",
+  );
+  questionNumber.textContent = `Otázka ${currentQuestionIndex + 1} z ${questions.length}`; 
+  
+  // přidání všech elementů do kontejneru
   questionDiv.appendChild(optionsContainer);
+  questionDiv.appendChild(questionNumber);
   questionContainer.appendChild(questionDiv);
 }
 
