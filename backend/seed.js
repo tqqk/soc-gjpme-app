@@ -42,8 +42,8 @@ const questions = [
     {
         orderNumber: 6, 
         question: "Na co bychom měli dbát při používání správce hesel?",
-        options: JSON.stringify(["Používání krátkého hesla bez dvojfázového ověření", "Přihlašovat se na něj z cizích počítačů", "Používání velice silného hlavního hesla s dvojfázovým ověřením", "Zapsat si heslo na papírek vedle počítače v kanceláři"]),
-        correctAnswer: "Používání velice silného hlavního hesla s dvojfázovým ověřením",
+        options: JSON.stringify(["Používání krátkého hesla bez dvoufázového ověření", "Přihlašovat se na něj z cizích počítačů", "Používání velice silného hlavního hesla s dvoufázovým ověřením", "Zapsat si heslo na papírek vedle počítače v kanceláři"]),
+        correctAnswer: "Používání velice silného hlavního hesla s dvoufázovým ověřením",
     },
     {
         orderNumber: 7, 
