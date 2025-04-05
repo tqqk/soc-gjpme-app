@@ -11,9 +11,9 @@ const pool = new Pool({
 const questions = [
     {
         orderNumber: 1,
-        question: "Jaká je minimální doporučená délka silného hesla?",
-        options: JSON.stringify(["6 znaků", "8 znaků", "12 znaků", "15 znaků"]),
-        correctAnswer: "8 znaků",
+        question: "Jaká je doporučená délka silného hesla?",
+        options: JSON.stringify(["Alespoň 6 znaků", "Alespoň 8 znaků", "Alespoň 12 znaků", "Alespoň 15 znaků"]),
+        correctAnswer: "Alespoň 15 znaků",
     },
     {
         orderNumber: 2, 
@@ -48,7 +48,7 @@ const questions = [
     {
         orderNumber: 7, 
         question: "Proč byste neměli používat osobní údaje (jména, data narození apod.) jako součást svých hesel?",
-        options: JSON.stringify(["Jsou povinné pouze u některých typů účtů", "Jsou snadno odhadnutelné útočníkem", "Snižují délku vašeho hesla", "Používání osobních údajů je trestně stíhané"]),
+        options: JSON.stringify(["Jsou snadno odhadnutelné útočníkem", "Snižují délku vašeho hesla", "Používání osobních údajů je trestně stíhané"]),
         correctAnswer: "Jsou snadno odhadnutelné útočníkem",
     }
 ];
