@@ -125,8 +125,9 @@ function generatePassphrase() {
     }
  
     const passphraseElement = document.getElementById("generatedPassphrase");
+    const passphraseElementDiv = document.getElementById("generatedPassphraseDiv");
     passphraseElement.textContent = passphrase;
-    passphraseElement.classList.add("bg-gray-200");
+    passphraseElementDiv.classList.add("bg-gray-200");
 
     document.getElementById("passphraseOutput").classList.add(
         "bg-gray-200",
