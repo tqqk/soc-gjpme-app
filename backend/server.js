@@ -73,5 +73,13 @@ app.post("/api/submit", (req, res) => {
 
 // zapnout server
 app.listen(PORT, () => {
-    console.log(`Server běží na http://localhost:${PORT}`); 
+    console.log(`Server běží na http://localhost:${PORT}`);
+
+    // self-ping aby server nezaspal
+    const SELF_URL = process.env.SELF_URL;
+    if (SELF_URL) {
+        setInterval(() => {
+            fetch(SELF_URL).catch(() => {});
+        }, 10 * 60 * 1000); // každých 10 minut
+    }
 });
