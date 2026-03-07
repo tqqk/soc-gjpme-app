@@ -16,13 +16,8 @@ async function loadWords(language) {
 // funkce pro načtení slovníků
 async function loadInitialWordLists() {
 
-    if (document.getElementById("czech").checked) {
-        await loadWords('czech');
-    }
-
-    if (document.getElementById("english").checked) {
-        await loadWords('english');
-    }
+    if (document.getElementById("czech").checked) await loadWords('czech');
+    if (document.getElementById("english").checked) await loadWords('english');
 }
 
 // interakce s html elementy
@@ -30,15 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadInitialWordLists();
 
     document.getElementById("czech").addEventListener("change", function() { 
-        if (this.checked && wordLists.czech.length === 0) {
-            loadWords('czech');
-        }
+        if (this.checked && wordLists.czech.length === 0) loadWords('czech');
     });
 
     document.getElementById("english").addEventListener("change", function() {
-        if (this.checked && wordLists.english.length === 0) {
-            loadWords('english');
-        }
+        if (this.checked && wordLists.english.length === 0) loadWords('english'); 
     });
 
     document.getElementById("generate").addEventListener("click", generatePassphrase);
@@ -66,77 +57,65 @@ function validateNumberOfWords(input) {
     const max = parseInt(input.max);
     let value = parseInt(input.value);
 
-    if (value < min) {
-        value = min; 
-    } else if (value > max) {
-        value = max; 
-    }
+    if (value < min) value = min; 
+    else if (value > max) value = max; 
 
     input.value = value; 
     return value;
 }
 
+// získání náhodného slova z kombinovaného wordlistu 
+function getRandomWord(combinedWordList, capitalize) { 
+    const randomIndex = Math.floor(Math.random() * combinedWordList.length);
+    let randomWord = combinedWordList[randomIndex];
+
+    if (capitalize) randomWord = randomWord.charAt(0).toUpperCase() + randomWord.slice(1);
+
+    return randomWord;
+}
+
 // generovaní passphrase
 function generatePassphrase() {
 
-    const useCzech = document.getElementById("czech").checked;
-    const useEnglish = document.getElementById("english").checked;
-    
     let combinedWordList = [];
-    if (useCzech == true) combinedWordList = combinedWordList.concat(wordLists.czech);
-    if (useEnglish == true) combinedWordList = combinedWordList.concat(wordLists.english);
+    if (document.getElementById("czech").checked) combinedWordList.push(...wordLists.czech);
+    if (document.getElementById("english").checked) combinedWordList.push(...wordLists.english);
     
     const numberOfWords = validateNumberOfWords(document.getElementById("numberOfWords"));
-    const separator = document.getElementById("separator").value;
-    
+    const capitalize = document.getElementById("capitalize").checked;
+
     const randomWords = [];
     for (let i = 0; i < numberOfWords; i++) {
-        const randomIndex = Math.floor(Math.random() * combinedWordList.length);
-
-        randomWords[i] = combinedWordList[randomIndex];
-        
-        if (document.getElementById("capitalize").checked) {
-            randomWords[i] = randomWords[i].charAt(0).toUpperCase() + randomWords[i].slice(1);
-        }
+        randomWords.push(getRandomWord(combinedWordList, capitalize));
     }
     
-    const randomNumber = Math.floor(Math.random() * randomWords.length);
+    const addNumberPosition = Math.floor(Math.random() * randomWords.length);
+    const addNumber = document.getElementById("add-number").checked;
+    const separator = document.getElementById("separator").value;
 
     let passphrase = "";
     for (let i = 0; i < randomWords.length; i++) {
 
-        if (i < randomWords.length - 1) {
-            if (document.getElementById("add-number").checked && i == randomNumber) {
-                passphrase = passphrase + randomWords[i] + Math.floor(Math.random() * 10) + separator; 
-            }
-            else {
-                passphrase = passphrase + randomWords[i] + separator;
-            }
+        passphrase = passphrase + randomWords[i];
+
+        if (addNumber && i === addNumberPosition) {
+            passphrase = passphrase + Math.floor(Math.random() * 10);
         }
-        else {
-            if (document.getElementById("add-number").checked && i == randomNumber) {
-                passphrase = passphrase + randomWords[i] + Math.floor(Math.random() * 10);      
-            }
-            else {
-                passphrase = passphrase + randomWords[i];
-            }
+
+        if (i < randomWords.length - 1) {
+            passphrase = passphrase + separator;
         }
 
     }
  
-    const passphraseElement = document.getElementById("generatedPassphrase");
-    const passphraseElementDiv = document.getElementById("generatedPassphraseDiv");
-    passphraseElement.textContent = passphrase;
-    passphraseElementDiv.classList.add("bg-gray-200");
-
+    document.getElementById("generatedPassphrase").textContent = passphrase;
+    document.getElementById("generatedPassphraseDiv").classList.add("bg-gray-200");
     document.getElementById("passphraseOutput").classList.add(
         "bg-gray-200",
         "border-0",
         "border-black",
     );
 
-    // tlačítko pro kopírování passphrase
-    const copyButton = document.getElementById("copyPassphrase");
-    copyButton.classList.remove("hidden");
-
+    // zobrazit tlačítko pro kopírování passphrase
+   document.getElementById("copyPassphrase").classList.remove("hidden");
 }
