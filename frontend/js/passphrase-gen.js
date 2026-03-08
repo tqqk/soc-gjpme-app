@@ -95,6 +95,15 @@ function generatePassphrase() {
     if (document.getElementById("czech").checked) combinedWordList.push(...wordLists.czech);
     if (document.getElementById("english").checked) combinedWordList.push(...wordLists.english);
     
+    if  (combinedWordList.length === 0) {
+        document.getElementById("generatedPassphrase").textContent = "Vyberte alespoň jeden jazyk pro generování passphrase!";
+        document.getElementById("passphraseOutput").classList.add(
+        "bg-red-100", 
+        );
+        document.getElementById("copyPassphrase").classList.add("hidden");
+        return;
+    }
+
     const numberOfWords = validateNumberOfWords(document.getElementById("numberOfWords"));
     const capitalize = document.getElementById("capitalize").checked;
 
@@ -123,11 +132,11 @@ function generatePassphrase() {
     }
  
     document.getElementById("generatedPassphrase").textContent = passphrase;
-    document.getElementById("generatedPassphraseDiv").classList.add("bg-gray-200");
+    document.getElementById("passphraseOutput").classList.remove(
+        "bg-red-100", 
+    );
     document.getElementById("passphraseOutput").classList.add(
-        "bg-gray-200",
-        "border-0",
-        "border-black",
+        "bg-gray-200", 
     );
 
     // zobrazit tlačítko pro kopírování passphrase
