@@ -107,29 +107,25 @@ function generatePassphrase() {
     const numberOfWords = validateNumberOfWords(document.getElementById("numberOfWords"));
     const capitalize = document.getElementById("capitalize").checked;
 
-    const randomWords = [];
-    for (let i = 0; i < numberOfWords; i++) {
-        randomWords.push(getRandomWord(combinedWordList, capitalize));
-    }
-    
-    const addNumberPosition = getSecureRandomInt(randomWords.length);
+    const addNumberPosition = getSecureRandomInt(numberOfWords);
     const addNumber = document.getElementById("add-number").checked;
     const separator = document.getElementById("separator").value;
 
-    let passphrase = "";
-    for (let i = 0; i < randomWords.length; i++) {
+    let passphraseWords = [];
+    for (let i = 0; i < numberOfWords; i++) {
 
-        passphrase = passphrase + randomWords[i];
+        passphraseWords.push(getRandomWord(combinedWordList, capitalize));
 
         if (addNumber && i === addNumberPosition) {
-            passphrase = passphrase + getSecureRandomInt(10);
+            passphraseWords.push(getSecureRandomInt(10));
         }
 
-        if (i < randomWords.length - 1) {
-            passphrase = passphrase + separator;
+        if (i < numberOfWords - 1) {
+            passphraseWords.push(separator);
         }
-
     }
+
+    let passphrase = passphraseWords.join("");
  
     document.getElementById("generatedPassphrase").textContent = passphrase;
     document.getElementById("passphraseOutput").classList.remove(
